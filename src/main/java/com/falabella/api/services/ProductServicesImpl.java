@@ -1,7 +1,5 @@
 package com.falabella.api.services;
 
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,7 +21,7 @@ public class ProductServicesImpl implements ProductService {
 	public void delete(Long sku) {
 		Product product = repository.findBySku(sku);
 
-		if(product != null) {
+		if (product != null) {
 			repository.delete(product);
 		}
 
