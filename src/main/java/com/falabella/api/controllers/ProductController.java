@@ -30,7 +30,7 @@ public class ProductController {
 	}
 	
 	@DeleteMapping("/delete/{sku}")
-	public String delete(@PathVariable String sku) {
+	public String delete(@PathVariable Long sku) {
 		service.delete(sku);
 		
 		return "Product Deleted";

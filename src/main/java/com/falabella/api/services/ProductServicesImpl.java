@@ -20,7 +20,7 @@ public class ProductServicesImpl implements ProductService {
 	}
 
 	@Override
-	public void delete(String sku) {
+	public void delete(Long sku) {
 		Product product = repository.findBySku(sku);
 
 		if(product != null) {

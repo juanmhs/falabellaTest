@@ -6,5 +6,5 @@ public interface ProductService {
 
 	public void save(Product product);
 	
-	public void delete(String sku);
+	public void delete(Long sku);
 }

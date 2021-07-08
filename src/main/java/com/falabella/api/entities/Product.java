@@ -16,6 +16,8 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import org.hibernate.validator.constraints.UniqueElements;
+
 @Entity
 @Table(name = "product")
 public class Product {
@@ -28,7 +30,7 @@ public class Product {
 	@NotNull(message = "SKU required")
 	@Min(value = 1000000, message = "SKU debe ser mayor a 1000000")
 	@Max(value = 99999999, message = "SKU debe ser menor a 99999999")
-	@Column(name = "sku")
+	@Column(name = "sku", unique = true)
 	private Long sku;
 
 	@NotEmpty(message = "Name required")
