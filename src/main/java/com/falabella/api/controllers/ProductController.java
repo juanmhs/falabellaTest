@@ -1,6 +1,9 @@
 package com.falabella.api.controllers;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,7 +22,8 @@ public class ProductController {
 	private ProductService service;
 	
 	@PostMapping("/create")
-	public Product create(@RequestBody Product product) {
+	public Product create(@Valid @RequestBody Product product) {
+		
 		service.save(product);
 		
 		return product;

@@ -10,6 +10,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "product")
@@ -20,21 +25,32 @@ public class Product {
 	@Column(name = "id")
 	private Long id;
 
+	@NotNull(message = "SKU required")
+	@Min(value = 1000000, message = "SKU debe ser mayor a 1000000")
+	@Max(value = 99999999, message = "SKU debe ser menor a 99999999")
 	@Column(name = "sku")
-	private String sku;
+	private Long sku;
 
+	@NotEmpty(message = "Name required")
+	@Size(min = 3, max = 50, message = "el tamaño del name debe estar entre 3 y 50")
 	@Column(name = "name")
 	private String name;
 
+	@NotEmpty(message = "Brand required")
+	@Size(min = 3, max = 50, message = "el tamaño del name debe estar entre 3 y 50")
 	@Column(name = "brand")
 	private String brand;
 
 	@Column(name = "size")
 	private String size;
 
+	@NotNull(message = "Price required")
+	@Min(value = 1, message = "SKU debe ser mayor a 1000000")
+	@Max(value = 99999999, message = "SKU debe ser menor a 99999999")
 	@Column(name = "price")
 	private double price;
 
+	@NotEmpty(message = "principalImage required")
 	@Column(name = "principal_image")
 	private String principalImage;
 
@@ -49,11 +65,11 @@ public class Product {
 		this.id = id;
 	}
 
-	public String getSku() {
+	public Long getSku() {
 		return sku;
 	}
 
-	public void setSku(String sku) {
+	public void setSku(Long sku) {
 		this.sku = sku;
 	}
 

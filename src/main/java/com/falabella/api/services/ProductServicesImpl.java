@@ -23,7 +23,9 @@ public class ProductServicesImpl implements ProductService {
 	public void delete(String sku) {
 		Product product = repository.findBySku(sku);
 
-		repository.delete(product);
+		if(produc != null) {
+			repository.delete(product);
+		}
 
 	}
 
